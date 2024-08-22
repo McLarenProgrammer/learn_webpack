@@ -61,6 +61,16 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
             }
         ],
         exclude: /node_modules/,
+    };
+    const babelLoader = {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
     }
 
     return [assetLoader, scssLoader, tsLoader, svgrLoader];
